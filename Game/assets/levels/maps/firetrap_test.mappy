@@ -1,0 +1,18 @@
+Game.Level.maps.firetrap_test = function(){
+Game.Level.clear();
+Game.Level.Settings.fog = false;
+Game.Light.object();
+Game.wallPrefix();
+Game.createBackgroundPrefix();
+Game.winBlock = new Game.GameObject(20,20,Game.File.getImageDirectory() + "door_texture.jpg", 9999, 220,"image");
+Game.backBlock = new Game.GameObject(20,20,Game.File.getImageDirectory() + "door_texture.jpg",9999,20,"image");
+Game.Teleport(320,60);
+Game.createTorch(260,180);
+Game.createTorch(400,180);
+Game.createTorch(400,340);
+Game.createTorch(260,340);
+Game.createShootingTile(260,340,1);
+Game.createShootingTile(260,180,1);
+Game.createShootingTile(400,180,1);
+Game.createShootingTile(400,340,1);
+}
