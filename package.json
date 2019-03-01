@@ -1,0 +1,16 @@
+{
+    "app_name": "POW2D",
+    "dom_storage_quota": "55000",
+    "main": "index.html",
+    "name": "POW2D",
+    "webkit": {},
+    "window": {
+        "exe_icon": "icon.png",
+        "frame": true,
+        "icon": "icon.png",
+        "id": "DragonDungeon2",
+        "mac_icon": "icon.png",
+        "resizable": false,
+        "title": "POW2D Base Engine"
+    }
+}

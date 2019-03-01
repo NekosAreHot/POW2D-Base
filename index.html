@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+	z-index: 0;
+}
+#main_menu {
+
+}
+dialog {
+	text-align: center;
+	position: absolute;
+	width: 75%;
+	left: 0;
+	top: 35%;
+}
+button {
+	width: 50%;
+	text-align: center;
+	
+}
+</style>
+<canvas id = "game_screen">Error: DragonDungeon cant load the canvas element, try to reinstall the game</canvas>
+
+<!-- Scripts --!></!-->
+<script src="Game/assets/os.js"></script>
+<script src="Game/assets/exe.js"></script>
+<script src="Game/assets/thread_sleep.js"></script>
+<script src="Game/assets/rot.min.js"></script>
+<script src="Game/assets/game.js"></script>
+<script src="Game/assets/console.js"></script>
+<script src="Game/assets/file.js"></script>
+<script src="Game/assets/filesystem.js"></script>
+<script src="Game/assets/textures.js"></script>
+<script src="Game/assets/startGame.js"></script>
+<script src="Game/assets/HTML.js"></script>
+<script src="Game/assets/java.js"></script>
+
+<!-- Levels></!-->
+<script src="Game/assets/levels/level.js"></script>
+<script src="Game/assets/levels/main_menu.mappy"></script>
+<script src="Game/assets/levels/GameOver.mappy"></script>
+<script src="Game/assets/levels/tests/pushable_dev_test.mappy"></script>
+<script src="Game/assets/levels/tests/pushable_demo_dev_test.mappy"></script>
+<script src="Game/assets/levels/tests/icetest_dev.mappy"></script>
+
+
+<script src="Game/assets/entities.js"></script>
+<script src="Game/assets/player.js"></script>
+<script src="Game/assets/items.js"></script>
+<script src="Game/assets/canvas.js"></script>
+<script src="Game/assets/screen.js"></script>
+<script src="Game/assets/sound.js"></script>
+<script src="Game/assets/save.js"></script>
+<script src="C:/Users/Public/Documents/RisingLight/saves/slot1.sav"></script>
+<!-- Objects></!-->
+<script src="Game/assets/objects.js"></script>
+<script src="Game/assets/groupedobject.js"></script>
+<script src="Game/assets/Objects/pushable.js"></script>
+<script src="Game/assets/Objects/button.js"></script>
+<script src="Game/assets/Objects/foreground.js"></script>
+<script src="Game/assets/Objects/trigger.js"></script>
+<script src="Game/assets/Objects/generic.js"></script>
+<script src="Game/assets/Objects/tree.js"></script>
+<script src="Game/assets/Objects/wall.js"></script>
+<script src="Game/assets/Objects/door.js"></script>
+<script src="Game/assets/Objects/droppedItem.js"></script>
+<script src="Game/assets/Objects/background.js"></script>
+<script src="Game/assets/Objects/text.js"></script>
+<script src="Game/assets/Objects/chest.js"></script>
+<script src="Game/assets/Objects/projectile.js"></script>
+<script src="Game/assets/Objects/light.js"></script>
+<script src="Game/assets/Objects/liquid.js"></script>
+<script src="Game/assets/Objects/torch.js"></script>
+<script src="Game/assets/Objects/lockeddoor.js"></script>
+<script src="Game/assets/AI.js"></script>
+<script src="Game/assets/animations.js"></script>
+<script src="Game/assets/dialog.js"></script>
+<script src="Game/assets/UI.js"></script>
+<script src="Game/assets/controller.js"></script>
+<script src="Game/assets/update.js"></script>
+
+</head>
+<body onload="Game.Start()">
+	<div id = "setting_menu">
+		<dialog id = "settings_dialog">
+			<p>This is the settings!</p>
+			<br><br>
+			<p id="user"></p>
+			<p id="user2"></p>
+			<br><br>
+			<input type="radio" id = "mute" onclick = "Game.HTML.getElement('unmute').checked = false;Sound.mute();">Sounds: OFF</input>
+			<input type="radio" id = "unmute" onclick = "Game.HTML.getElement('mute').checked = false;Sound.unMute();">Sounds: ON</input>
+			<br><br>
+			<button onclick = "Game.HTML.closeSettings()">Main Menu</button>
+		</dialog>
+	</div>
+	<div id = "main_menu">
+		<dialog id = "menu_dialog" style="background-color:rgba(255,255,255,0.3);" open= "open">
+			<br><br>
+			<button style ="text-align:center;" onclick="Game.HTML.showClassScreen()"><b>New Game</b></button>
+			<br><br>
+			<button style ="text-align:center;" onclick = "Game.HTML.loadSave()"><b>Load Game</b></button>
+			<br><br>
+			<button style ="text-align:center;" onclick = "Game.HTML.showSettings()"><b>Settings</b></button>
+			<br><br>
+			<button style ="text-align:center;" onclick = "Game.HTML.showControls()"><b>Controls</b></button>
+			<br><br>
+			<button style ="z-index:0;text-align:center;" onclick = "window.open('mappy.html');"><b>Level Editor</b></button>
+			<br><br>
+			<a><button style = "z-index:-1;bottom:8px;right:16px;position:absolute;background:transparent;border:none !important;" onclick = "window.open('https://discord.gg/ZstBX2A');"><b>Our Discord Server!</b><img src="Textures/a-Discord_button.ico"></img></button></a>
+		</dialog>
+	</div>
+	<div id = "class_menu">
+		<dialog id = "select_class" style = "text-align:center;">
+			<br><br>
+			<button onclick = "Game.HTML.startKnight()">Knight</button>
+			<br><br>
+			<button onclick = "Game.HTML.startArcher()">Archer</button>
+			<br><br>
+			<button onclick = "Game.HTML.startMage()">Mage</button>
+		</dialog>
+	</div>
+	<div id = "inventory_div">
+		<dialog id = "inventory_dialog" style = "text-align: center;">
+			<button>inv_slot1</button><button>inv_drop_slot1</button>
+			<br>
+			<button>inv_slot2</button><button>inv_drop_slot2</button>
+			<br>
+			<button>inv_slot3</button><button>inv_drop_slot3</button>
+			<br>
+			<button>inv_slot4</button><button>inv_drop_slot4</button>
+			<br>
+			<button>inv_slot5</button><button>inv_drop_slot5</button>
+			<br>
+			<button>inv_slot6</button><button>inv_drop_slot6</button>
+			<br>
+			<button>inv_slot7</button><button>inv_drop_slot7</button>
+			<br>
+			<button>inv_slot8</button><button>inv_drop_slot8</button>
+			<br>
+			<button>inv_slot9</button><button>inv_drop_slot9</button>
+			<br>
+			<button>inv_slot10</button><button>inv_drop_slot10</button>
+		</dialog>
+	</div>
+	<div id = "controls_menu">
+		<dialog id = "controls_dialog">
+			<p>Controls for Dragon Dungeon: Rising Light</p>
+			<br>
+			<p id="1">W/A/S/D -	-	- Move</p>
+			<br>
+			<p id="2">E -	-	- Pickup Items</p>
+			<br>
+			<p id="3">I -	-	- Open Inventory</p>
+			<br>
+			<p id="4">F -	- 	- Open Chests</p>
+			<br>
+			<p id="5">P -	-	- Pause the game</p>
+			<br>
+			<p id="6">Space -	-	- Unpause the game</p>
+			<br>
+			<p id="7">Control -	-	- Save the game</p>
+			<br>
+			<p id="8">Q -	-	- Shoot a Arrow</p>
+			<br>
+			<p id="9">H -	-	- Shoot a FireBall</p>
+			<br>
+			<p id="10">J -	-	- Shoot a Ice Shard</p>
+			<br>
+			<p id="11">K -	-	- Shoot a ThunderBolt</p>
+			<br>
+			<p id="12">L -	-	- Use the Life Staff</p>
+			<br>
+			<br>
+			<br>
+			<button onclick = "Game.HTML.closeControls()">Main Menu</button>
+		</dialog>
+	</div>
+	<div id = "shop_div">
+		<dialog id="shop_dialog">
+			<p>Welcome to my shop!</p>
+			<button id="shop_btn0" onclick = "Game.buyShop(0)">Empty</button>
+			<br><br>
+			<button id="shop_btn1" onclick = "Game.buyShop(1)">Empty</button>
+			<br><br>
+			<button id="shop_btn2" onclick = "Game.buyShop(2)">Empty</button>
+			<br><br>
+			<button id="shop_btn3" onclick = "Game.buyShop(3)">Empty</button>
+			<br><br>
+		</dialog>
+	</div>
+	<div id = "chest_div">
+		<dialog id = "chest_dialog">
+			<button id="chest_btn1" onclick = "Game.takeSlot(1);">Empty</button>
+			<br><br>
+			<button id = "chest_btn2" onclick = "Game.takeSlot(2);">Empty</button>
+			<br><br>
+			<button id = "chest_btn3" onclick = "Game.takeSlot(3);">Empty</button>
+			<br><br>
+			<button id = "chest_btn4" onclick = "Game.takeSlot(4);">Empty</button>
+			<br><br>
+		</dialog>
+	</div>
+</body>
+</body>
+</html>
