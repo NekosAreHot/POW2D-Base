@@ -38,12 +38,11 @@ Game.Light.removeAt = function(x,y){
 };
 Game.Light.disable = function(){
 	//Self explanitory
+	Game.Level.Settings.disableLight = true;
 };
 Game.Light.enable = function(){
 	//self explanitory
-};
-Game.Light.placeAt = function(x,y){
-	//Places darkness at x,y
+	Game.Level.Settings.disableLight = false;
 };
 Game.Light.getAt = function(x,y){
 	//Gets a light object at x,y
