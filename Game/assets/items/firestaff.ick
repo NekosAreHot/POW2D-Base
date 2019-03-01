@@ -1,0 +1,51 @@
+Game.Items.equipment.magic.fire = {
+	name : "Flame Staff",
+	trueName : "equipment.magic.fire",
+	attack : 15,
+	isBroken : false,
+	price : 15,
+	cooldown : 1,
+	cooldown_1 : 0,
+	icon : "staff_02e.png",
+	ammo : "Magic",
+	rarity : 2,
+	isConsumable : false,
+	description : "An old wooden staff. Engraved with a flame.",
+	use : function(){
+		this.equipt();
+	},
+	equipt : function(){
+		if(this.cooldown > this.cooldown_1){
+			this.cooldown_1++;
+			if(this.isEquipped){
+				this.name = "Click again to unequipt";
+			}else{
+				this.name = "Click again to equipt";
+			}
+			//if(this.cooldown == this.cooldown_1){
+			//	this.equipt();
+			//}
+		}else{
+			this.cooldown_1 = 0;
+			if(this.isEquipped){
+				this.isEquipped = false;
+				this.name = "Flame Staff";
+				Game.player.hasFire = false;
+			}else{
+				this.isEquipped = true;
+				this.name = "Flame Staff [equipped]";
+				Game.player.hasFire = true;
+			}
+			
+		}
+		
+	},
+	unequipt : function(){
+		this.isEquipped = false;
+		this.name = "Flame Staff";
+		Game.player.damagePerHit -= this.attack;
+	},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

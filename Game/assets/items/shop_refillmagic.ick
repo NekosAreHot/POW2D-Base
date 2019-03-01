@@ -1,0 +1,21 @@
+Game.Items.Shop.shop_refillmagic = {
+	name : "Refill Your magic with MoonShine",
+	trueName : "key",
+	icon : "error.png",
+	description : "shop_refillmagic",
+	isConsumable : false,
+	use : function(){
+		//does nothing
+	},
+	equipt : function(){
+		//cant equipt
+	},
+	unequipt : function(){
+		//cant unequipt
+	},
+	onPickup : function(){
+		Game.Dialog.hide();
+		Game.Dialog.setText("Your magic was restored!",2);
+		Game.player.Magic = Game.player.magicRoof;
+	}
+}

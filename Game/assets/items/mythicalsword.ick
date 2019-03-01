@@ -1,0 +1,52 @@
+Game.Items.legendary.mythical_sword = {
+	name : "Mythical Sword",
+	trueName : "legendary.mythical_sword",
+	description : "A glowing Mythical Sword is laying on the ground.",
+	attack : 40,
+	cooldown : 1,
+	cooldown_1 : 0,
+	icon : "sword_03d.png",
+	price : 25,
+	isBroken : false,
+	rarity : 150,
+	isEquiptable : true,
+	isEquipped : false,
+	use : function(){
+		this.equipt();
+	},
+	equipt : function(){
+		if(this.cooldown > this.cooldown_1){
+			this.cooldown_1++;
+			if(this.isEquipped){
+				this.name = "Click again to unequipt";
+			}else{
+				this.name = "Click again to equipt";
+			}
+			//if(this.cooldown == this.cooldown_1){
+			//	this.equipt();
+			//}
+		}else{
+			this.cooldown_1 = 0;
+			if(this.isEquipped){
+				this.isEquipped = false;
+				Game.player.hasSword = false;
+				this.name = "Mythical Sword";
+				Game.player.damagePerHit -= this.attack;
+			}else{
+				this.isEquipped = true;
+				Game.player.hasSword = true;
+				this.name = "Mythical Sword [equipped]";
+				Game.player.damagePerHit += this.attack;
+			}
+		}
+		
+	},
+	unequipt : function(){
+		this.isEquipped = false;
+		this.name = "Mythical Sword";
+		Game.player.damagePerHit -= this.attack;
+	},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

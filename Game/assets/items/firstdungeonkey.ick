@@ -1,0 +1,19 @@
+Game.Items.FirstDungeon.key = {
+	name : "A Rusty old key",
+	trueName : "key",
+	icon : "key_02a.png",
+	description : "A cold and mysterious key",
+	isConsumable : false,
+	use : function(){
+		//does nothing
+	},
+	equipt : function(){
+		//cant equipt
+	},
+	unequipt : function(){
+		//cant unequipt
+	},
+	onPickup : function(){
+		Game.Level.hasBeatFirstDungeon = true;
+	}
+}

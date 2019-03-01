@@ -1,0 +1,18 @@
+Game.Items.uncommon.largemagicpotion = {
+	name : "Large Magic Potion",
+	trueName : "uncommon.largemagicpotion",
+	rarity : 0.5,
+	stack : 1,
+	maxStack : 60,
+	price : 5,
+	icon : "potion_03b.png",
+	isConsumable : true,
+	description : "A large potion restoring magic.",
+	use : function(){
+		Game.player.Magic += 15;
+	},
+	equipt : function(){},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

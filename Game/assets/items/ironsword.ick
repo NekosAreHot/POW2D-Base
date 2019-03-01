@@ -1,0 +1,52 @@
+Game.Items.equipment.weapons.ironsword = {
+	name : "Iron Sword",
+	trueName : "equipment.weapons.ironsword",
+	price : 9,
+	cooldown : 1,
+	cooldown_1 : 0,
+	attack : 14,
+	isBroken : false,
+	rarity : 1,
+	isEquiptable : true,
+	isEquipped : false,
+	icon : "sword_01b.png",
+	description : "A sharp Iron sword.",
+	use : function(){
+		this.equipt();
+	},
+	equipt : function(){
+		if(this.cooldown > this.cooldown_1){
+			this.cooldown_1++;
+			if(this.isEquipped){
+				this.name = "Click again to unequip";
+			}else{
+				this.name = "Click again to equip";
+			}
+			//if(this.cooldown == this.cooldown_1){
+			//	this.equipt();
+			//}
+		}else{
+			this.cooldown_1 = 0;
+			if(this.isEquipped){
+				this.isEquipped = false;
+				this.name = "Iron Sword";
+				Game.player.hasSword = false;
+				Game.player.damagePerHit -= this.attack;
+			}else{
+				this.isEquipped = true;
+				Game.player.hasSword = true;
+				this.name = "Iron Sword [equipped]";
+				Game.player.damagePerHit += this.attack;
+			}
+		}
+		
+	},
+	unequipt : function(){
+		this.isEquipped = false;
+		this.name = "Iron Sword";
+		Game.player.damagePerHit -= this.attack;
+	},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

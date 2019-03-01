@@ -1,0 +1,49 @@
+Game.Items.equipment.helmet.woodenhelmet = {
+	name : "Wooden Helmet",
+	trueName : "equipment.helmet.woodenhelmet",
+	price : 5,
+	cooldown : 1,
+	cooldown_1 : 0,
+	isBroken : false,
+	rarity : 1,
+	isEquiptable : true,
+	isEquipped : false,
+	icon : "helmet_01a.png",
+	description : "A strong wooden helmet.",
+	use : function(){
+		this.equipt();
+	},
+	equipt : function(){
+		if(this.cooldown > this.cooldown_1){
+			this.cooldown_1++;
+			if(this.isEquipped){
+				this.name = "Click again to unequip";
+			}else{
+				this.name = "Click again to equip";
+			}
+			//if(this.cooldown == this.cooldown_1){
+			//	this.equipt();
+			//}
+		}else{
+			this.cooldown_1 = 0;
+			if(this.isEquipped){
+				this.isEquipped = false;
+				this.name = "Wooden Helmet";
+				
+			}else{
+				this.isEquipped = true;
+				this.name = "Wooden Helmet [equipped]";
+				
+			}
+		}
+		
+	},
+	unequipt : function(){
+		this.isEquipped = false;
+		this.name = "Wooden Helmet";
+		
+	},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

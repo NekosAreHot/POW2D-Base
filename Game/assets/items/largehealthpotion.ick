@@ -1,0 +1,17 @@
+Game.Items.common.largepotion = {
+	name : "Large Potion of Healing",
+	trueName : "common.largepotion",
+	rarity : 2.5,
+	healing: 35,
+	icon : "potion_03a.png",
+	isConsumable : true,
+	description : "A bright red substance in a big vial.",
+	use : function(){
+		Game.player.health += 35;
+	},
+	equipt : function(){},
+	unequipt : function(){},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

@@ -1,0 +1,18 @@
+Game.Items.common.MagicPotion = {
+	name : "Magic Potion",
+	trueName : "common.MagicPotion",
+	rarity : 0.5,
+	stack : 1,
+	maxStack : 60,
+	price : 2,
+	icon : "potion_02b.png",
+	isConsumable : true,
+	description : "A potion restoring magic.",
+	use : function(){
+		Game.player.Magic = Game.player.Magic + 15;
+	},
+	equipt : function(){},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

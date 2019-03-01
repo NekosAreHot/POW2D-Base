@@ -1,0 +1,22 @@
+Game.Items.Admin.neko = {
+	name : "NekoGod.exe",
+	trueName : "Admin.neko",
+	rarity : 4,
+	stack : 1,
+	price : 1,
+	isBuyable : false,
+	isConsumable : true,
+	maxStack : 99,
+	icon : "neko.jpeg",
+	description : "A Program that makes you a neko god",
+	use : function(){
+		Game.player.gold += Infinity;
+		Game.PlayerName = "NekoGod";
+		Game.player.health = NaN;
+		Game.Dialog.setText("You are now a neko god!",1);
+	},
+	equipt : function(){},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

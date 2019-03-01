@@ -1,0 +1,50 @@
+Game.Items.equipment.rings.powerring = {
+	name : "Ring of Power",
+	trueName : "equipment.rings.powerring",
+	price : 5,
+	cooldown : 1,
+	cooldown_1 : 0,
+	attack : 5,
+	isBroken : false,
+	rarity : 1,
+	isEquiptable : true,
+	isEquipped : false,
+	icon : "sring_01e.png",
+	description : "A metal ring. It makes you feel powerful.",
+	use : function(){
+		this.equipt();
+	},
+	equipt : function(){
+		if(this.cooldown > this.cooldown_1){
+			this.cooldown_1++;
+			if(this.isEquipped){
+				this.name = "Click again to unequip";
+			}else{
+				this.name = "Click again to equip";
+			}
+			//if(this.cooldown == this.cooldown_1){
+			//	this.equipt();
+			//}
+		}else{
+			this.cooldown_1 = 0;
+			if(this.isEquipped){
+				this.isEquipped = false;
+				this.name = "Ring of Power";
+				Game.player.damagePerHit -= this.attack;
+			}else{
+				this.isEquipped = true;
+				this.name = "Ring of Power [equipped]";
+				Game.player.damagePerHit += this.attack;
+			}
+		}
+		
+	},
+	unequipt : function(){
+		this.isEquipped = false;
+		this.name = "Ring of Power";
+		Game.player.damagePerHit -= this.attack;
+	},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

@@ -1,0 +1,50 @@
+Game.Items.equipment.weapons.silverbow = {
+	name : "SilverBow",
+	trueName : "equipment.weapons.silverbow",
+	attack : 25,
+	isBroken : false,
+	price : 20,
+	cooldown : 1,
+	cooldown_1 : 0,
+	ammo : "arrow",
+	icon : "bow_01b.png",
+	rarity : 2,
+	isConsumable : false,
+	description : "A curvy bow made from refined silver and high quality fiber.",
+	use : function(){
+		this.equipt();
+	},
+	equipt : function(){
+		if(this.cooldown > this.cooldown_1){
+			this.cooldown_1++;
+			if(this.isEquipped){
+				this.name = "Click again to unequipt";
+			}else{
+				this.name = "Click again to equipt";
+			}
+			//if(this.cooldown == this.cooldown_1){
+			//	this.equipt();
+			//}
+		}else{
+			this.cooldown_1 = 0;
+			if(this.isEquipped){
+				this.isEquipped = false;
+				this.name = "Silver Bow";
+				Game.player.hasSilverBow = false;
+			}else{
+				this.isEquipped = true;
+				this.name = "Silver Bow [equipped]";
+				Game.player.hasSilverBow = true;
+			}
+		}
+		
+	},
+	unequipt : function(){
+		this.isEquipped = false;
+		this.name = "Silver Bow";
+		Game.player.damagePerHit -= this.attack;
+	},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

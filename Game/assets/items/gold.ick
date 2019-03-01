@@ -1,0 +1,55 @@
+Game.Items.common.gold = {
+	name : "Gold",
+	trueName : "common.gold",
+	rarity : 4,
+	isConsumable : true,
+	maxStack : 99,
+	icon : "coin_01d.png",
+	description : "A sparkling gold coin",
+	use : function(){
+		Game.player.gold += 1;
+	},
+	equipt : function(){},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}
+
+Game.Items.common.gold3 = {
+	name : "Gold",
+	trueName : "common.gold",
+	rarity : 4,
+	stack : 1,
+	price : 1,
+	isBuyable : false,
+	isConsumable : true,
+	maxStack : 99,
+	icon : "coin_01d.png",
+	description : "A sparkling gold coin",
+	use : function(){
+		Game.player.gold += 1;
+	},
+	equipt : function(){},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}
+Game.Items.common.gold2 = {
+	name : "Gold",
+	trueName : "common.gold",
+	rarity : 4,
+	stack : 1,
+	price : 1,
+	isBuyable : false,
+	isConsumable : true,
+	maxStack : 99,
+	icon : "coin_01d.png",
+	description : "A sparkling gold coin",
+	use : function(){
+		Game.player.gold += 1;
+	},
+	equipt : function(){},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

@@ -1,0 +1,49 @@
+Game.Items.equipment.helmet.ironhelmet = {
+	name : "Iron Helmet",
+	trueName : "equipment.helmet.ironhelmet",
+	price : 15,
+	cooldown : 1,
+	cooldown_1 : 0,
+	isBroken : false,
+	rarity : 1,
+	isEquiptable : true,
+	isEquipped : false,
+	icon : "helmet_01a.png",
+	description : "A strong iron helmet.",
+	use : function(){
+		this.equipt();
+	},
+	equipt : function(){
+		if(this.cooldown > this.cooldown_1){
+			this.cooldown_1++;
+			if(this.isEquipped){
+				this.name = "Click again to unequip";
+			}else{
+				this.name = "Click again to equip";
+			}
+			//if(this.cooldown == this.cooldown_1){
+			//	this.equipt();
+			//}
+		}else{
+			this.cooldown_1 = 0;
+			if(this.isEquipped){
+				this.isEquipped = false;
+				this.name = "Iron Helmet";
+				
+			}else{
+				this.isEquipped = true;
+				this.name = "Iron Helmet [equipped]";
+				
+			}
+		}
+		
+	},
+	unequipt : function(){
+		this.isEquipped = false;
+		this.name = "Iron Helmet";
+		
+	},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

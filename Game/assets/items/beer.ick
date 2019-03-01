@@ -1,0 +1,21 @@
+Game.Items.common.beer = {
+	name : "Bottle o' Beer",
+	trueName : "common.beer",
+	rarity : 2.5,
+	icon : "beer.png",
+	isConsumable : true,
+	description : "An alcoholic beverage.",
+	use : function(){
+		Game.player.isDrunk = true;
+		Game.player.canGainExp = false;
+		Game.player.damagePerHit += 20;
+		Game.Dialog.hide();
+		Game.Dialog.setText("You guzzle the beer and you feel drunk, but powerful!",2);
+		Thread.sleep(15000,"Game.Dialog.hide();Game.player.isDrunk = false;Game.Dialog.setText(\"You sober up\",2);Game.player.damagePerHit -= 20;Game.player.canGainExp = true;");
+	},
+	equipt : function(){},
+	unequipt : function(){},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

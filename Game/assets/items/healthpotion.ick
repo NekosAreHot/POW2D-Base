@@ -1,0 +1,17 @@
+Game.Items.common.potion = {
+	name : "Potion of Healing",
+	trueName : "common.potion",
+	rarity : 2.5,
+	healing: 20,
+	icon : "potion_02a.png",
+	isConsumable : true,
+	description : "A bright green substance in a vial, it appears to revitalize.",
+	use : function(){
+		Game.player.health += 20;
+	},
+	equipt : function(){},
+	unequipt : function(){},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

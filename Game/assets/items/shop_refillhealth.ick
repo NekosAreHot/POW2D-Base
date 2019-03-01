@@ -1,0 +1,21 @@
+Game.Items.Shop.shop_refillhealth = {
+	name : "Restore Health with bullshit",
+	trueName : "key",
+	icon : "error.png",
+	description : "shop_refillhealth",
+	isConsumable : false,
+	use : function(){
+		//does nothing
+	},
+	equipt : function(){
+		//cant equipt
+	},
+	unequipt : function(){
+		//cant unequipt
+	},
+	onPickup : function(){
+		Game.Dialog.hide();
+		Game.Dialog.setText("Your health was restored!",2);
+		Game.player.health = Game.player.healthRoof;
+	}
+}

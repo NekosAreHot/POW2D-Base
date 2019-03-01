@@ -1,0 +1,17 @@
+Game.Items.common.apple = {
+	name : "Apple",
+	trueName : "common.apple",
+	healing : 5,
+	price : 6,
+	rarity : 0.2,
+	icon : "apple.png",
+	isConsumable : true,
+	description : "A big bright red apple.",
+	use : function(){
+		Game.player.health += 5;
+	},
+	equipt : function(){},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}

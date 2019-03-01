@@ -1,0 +1,18 @@
+Game.Items.common.arrow = {
+	name : "A bundle of Arrows",
+	trueName : "common.arrow",
+	rarity : 0.5,
+	stack : 1,
+	maxStack : 60,
+	price : 2,
+	icon : "arrow_01e.png",
+	isConsumable : true,
+	description : "A pile of arrows.",
+	use : function(){
+		Game.player.arrows += 5;
+	},
+	equipt : function(){},
+	onPickup : function(){
+		//Code when the player adds this item to their inventory
+	}
+}
