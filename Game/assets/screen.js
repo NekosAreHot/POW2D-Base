@@ -1,6 +1,6 @@
 Game.Screen = {};
-Game.Screen.getWidth = 1200;
-Game.Screen.getHeight = 700;
+Game.Screen.getWidth = Game.myGameArea.canvas.width;
+Game.Screen.getHeight = Game.myGameArea.canvas.height;
 Game.Screen.resize = function(width,height){
   window.resizeTo(width,height);
 }
