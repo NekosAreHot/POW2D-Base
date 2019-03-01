@@ -2,7 +2,7 @@ Game.Level = {};
 Game.Level.clear = function(){
 	Game.File.savePlayerInventory();
 	Game.File.savePlayerHealth();
-	Game.File.savePlayerScore();
+	//Game.File.savePlayerScore();
 	Game.Walls = [];
 	Game.Backgrounds = [];
 	Game.GameObjects = [];
