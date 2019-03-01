@@ -1,0 +1,8 @@
+Game.mainMenu = function(){
+	Sound.theme.play();
+	//Game.Background = new Game.GameObject(Game.myGameArea.getWidth(),Game.myGameArea.getHeight(),"Textures/Rising_Light.png",0,0,"image");
+	//Game.Level.Overworld.randomLevel();
+	Game.isInMenu = true;
+	Game.Level.Settings.fog = false;
+	Game.Light.object();
+}

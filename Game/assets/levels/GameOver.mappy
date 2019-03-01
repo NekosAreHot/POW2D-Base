@@ -1,0 +1,19 @@
+Game.GameOver = function() {
+
+	
+Game.Level.clear();
+Game.Level.Settings.fog = true;
+
+
+Game.GOBackground = new Game.GameObject(Game.myGameArea.getWidth(),Game.myGameArea.getHeight(),"Textures/GameOverScreen.png",0,0,"image");
+
+Game.Level.Settings.fog = false;
+Game.Light.object();
+
+
+
+
+Thread.sleep(5000,"location.reload();");
+
+
+}
